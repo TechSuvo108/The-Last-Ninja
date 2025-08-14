@@ -57,7 +57,7 @@ body {
 }
 
 .animatedragon {
-    animation: dragon 1s linear infinite;
+    animation: dragon 2s linear infinite;
 }
 
 @keyframes dragon {
