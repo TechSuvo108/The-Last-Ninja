@@ -4,18 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Last Ninja</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <!-- ================= GAME AREA ================= -->
     <div class="gamecontainer">
         <div class="gameover"></div>
-        <div class="creator">The Last Ninja Created by SUBHAM KOLAY </div>
+        <button class="reload-btn" id="reloadBtn">🔄 Restart</button>
+
+        <div class="creator">The Last Ninja — Designed & Developed by Subham Kolay</div>
         <div class="score"><b>Your Score: 0</b></div>
-        <div class="dragon animatedragon"></div>
-        <div class="ninja animateninja"></div>
+
+        <div class="dragon"></div>
+        <div class="ninja"></div>
     </div>
+    <!-- ================= GAME AREA ================= -->
+
+
+
+    <!-- ================= TOUCH CONTROLS ================= -->
+    <div class="controls">
+        <button id="up">⬆️</button>
+        <div>
+            <button id="left">⬅️</button>
+            <button id="right">➡️</button>
+        </div>
+        <button id="down">⬇️</button>
+    </div>
+    <!-- ================= TOUCH CONTROLS ================= -->
+
+
+
+    <!-- ================= CONTROL MODE SELECTION ================= -->
+    <div class="mode-popup" id="modePopup">
+        <div class="mode-box">
+            <h2>Select Control Mode</h2>
+
+            <button id="touchMode">
+                📱 Touch Screen <br />
+                (Use on-screen buttons ⬆️ ⬅️ ➡️ ⬇️)
+            </button>
+
+            <button id="keyboardMode">
+                ⌨️ Keyboard <br />
+                (On-screen buttons will hide. Use keyboard ⬆️ ⬅️ ➡️ ⬇️)
+            </button>
+
+        </div>
+    </div>
+    <!-- ================= CONTROL MODE SELECTION ================= -->
+
+
     <script src="script.js"></script>
 </body>
 
