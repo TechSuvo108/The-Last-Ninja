@@ -1,10 +1,13 @@
 /* ================= GLOBAL RESET & BASE ================= */
+/* Removes default browser spacing and ensures predictable sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ================= BODY BASE ================= */
+/* Locks viewport and prevents unwanted scrolling */
 body {
     background-color: rgb(207, 109, 109);
     overflow: hidden;
@@ -12,62 +15,71 @@ body {
 
 
 /* ================= GAME CONTAINER ================= */
+/* Main game background wrapper */
 .gamecontainer {
     background-image: url(Background.jpg);
     background-repeat: no-repeat;
+    background-position: center bottom; /* Keeps ground aligned */
     background-size: cover;
-    background-size: 100vw 100vh;
     height: 100vh;
     width: 100vw;
 }
 
 
 /* ================= GAME CHARACTERS ================= */
+/* Player character */
 .ninja {
     background-image: url(Ninja.png);
     background-repeat: no-repeat;
     background-size: contain;
-    height: 18vh;
-    width: 18vh;
+    height: clamp(70px, 12vw, 140px);   /* Responsive scaling */
+    width: clamp(70px, 12vw, 140px);
     position: absolute;
     bottom: 0;
     left: 5vw;
 }
 
+/* Enemy character */
 .dragon {
     background-image: url(dragon.png);
     background-repeat: no-repeat;
     background-size: contain;
-    height: 15vh;
-    width: 22vh;
+    height: clamp(60px, 10vw, 120px);
+    width: clamp(90px, 15vw, 160px);
     position: absolute;
     bottom: 0;
-    left: 100vw;
+    left: 100vw;                        /* Starts off-screen */
 }
 
 
 /* ================= CHARACTER ANIMATIONS ================= */
+/* Ninja jump animation (disabled — kept for reference) */
+/*
 .animateninja {
-    animation: ninja 0.6s linear;
+    animation: ninja 0.85s ease-out;
 }
 
 @keyframes ninja {
-    0% { bottom: 0; }
-    50% { bottom: 40vh; }
+    0%   { bottom: 0; }
+    50%  { bottom: 55vh; }
     100% { bottom: 0; }
 }
+*/
 
+/* Dragon movement animation */
 .animatedragon {
     animation: dragon 2s linear infinite;
 }
 
+/* Moves dragon from right to left */
 @keyframes dragon {
-    0% { left: 100vw; }
+    0%   { left: 100vw; }
     100% { left: -30vw; }
 }
 
 
 /* ================= GAME UI (SCORE, TEXT) ================= */
+/* Score display */
 .score {
     font-size: 30px;
     color: white;
@@ -75,6 +87,7 @@ body {
     text-align: center;
 }
 
+/* Developer credit text */
 .creator {
     color: azure;
     position: relative;
@@ -86,6 +99,7 @@ body {
 
 
 /* ================= GAME OVER SCREEN ================= */
+/* Shown when collision occurs */
 .gameover {
     color: white;
     background-color: rgba(40, 32, 32, 0.9);
@@ -99,11 +113,12 @@ body {
     text-align: center;
     padding: 20px;
     z-index: 100;
-    display: none;
+    display: none;                     /* Hidden by default */
 }
 
 
 /* ================= TOUCH CONTROLS ================= */
+/* On-screen controls for mobile users */
 .controls {
     position: fixed;
     bottom: 30px;
@@ -115,6 +130,7 @@ body {
     z-index: 200;
 }
 
+/* Individual control buttons */
 .controls button {
     font-size: 30px;
     width: 65px;
@@ -123,9 +139,10 @@ body {
     border: 2px solid white;
     background-color: rgba(0,0,0,0.7);
     color: white;
-    touch-action: manipulation;
+    touch-action: manipulation;        /* Prevents double-tap zoom */
 }
 
+/* Hover feedback */
 .controls button:hover {
     cursor: pointer;
     transform: scale(1.05);
@@ -133,6 +150,7 @@ body {
 
 
 /* ================= MODE SELECTION POPUP ================= */
+/* Initial control-mode selection overlay */
 .mode-popup {
     position: fixed;
     inset: 0;
@@ -143,6 +161,7 @@ body {
     z-index: 1000;
 }
 
+/* Popup card */
 .mode-box {
     background: #222;
     padding: 25px;
@@ -157,6 +176,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Mode selection buttons */
 .mode-box button {
     width: 100%;
     padding: 12px;
@@ -171,6 +191,7 @@ body {
 
 
 /* ================= RESTART BUTTON ================= */
+/* Appears after game over */
 .reload-btn {
     position: absolute;
     top: 55%;
@@ -184,16 +205,18 @@ body {
     color: white;
     cursor: pointer;
     z-index: 150;
-    display:none;
+    display: none;
 }
 
+/* Hover feedback */
 .reload-btn:hover {
     background-color: #ff3030;
 }
 
 
 /* ================= MOBILE SAFETY ================= */
-html, body {
+/* Prevents scroll, zoom, and layout shifting on touch devices */
+html,body {
     touch-action: none;
     position: fixed;
     width: 100%;

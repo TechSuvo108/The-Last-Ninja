@@ -23,7 +23,7 @@
 <p>
   <em>
     Experience the game live in your browser:<br>
-    🔗 <a href="https://sparkly-belekoy-2c37e9.netlify.app/"><b>Play The Last Ninja</b></a>
+    🔗 <a href="https://splendorous-paletas-0f290c.netlify.app/"><b>Play The Last Ninja</b></a>
   </em>
 </p>
 
